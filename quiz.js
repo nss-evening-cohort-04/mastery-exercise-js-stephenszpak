@@ -1,19 +1,20 @@
 var button = document.getElementById("grow");
 var inputHeight = document.getElementById("height");
 var inputChar = document.getElementById("char");
-var enterKey = document.getElementById("grow");
+
 
 button.addEventListener("click", checkMe);
+inputChar.addEventListener("keyup", enterKey);
 
-enterKey.addEventListener('keyup', function (event) {
-  if (event.which === 13) {
-    checkMe();
-  }
-});
+function enterKey(event){
+    if(event.keyCode === 13){
+      checkMe();
+    }
+};
 
 function checkMe () {
 	if (inputHeight.value == "" || inputChar.value == "") {
-    	alert("HALP");
+    	alert("Both fields required!");
 	} else {
       	var tree = {
         	height: inputHeight.value,
@@ -23,15 +24,14 @@ function checkMe () {
     }
 };
 
-
 function buildTree(treeMe) {
 	var char = treeMe.char;
 	var space = treeMe.height - 1;
-  	var charString = "";
+  var charString = "";
 
-  	for (var i = 0, j = space; i < treeMe.height; i++, j--) {
+  	for (var i = 0, t = space; i < treeMe.height; i++, t--) {
    		charString += char;
-    	console.log(" ".repeat(j) + charString);
+    	console.log(" ".repeat(t) + charString);
     	charString += char;
 	}
 };
