@@ -2,10 +2,9 @@ var button = document.getElementById("grow");
 var inputHeight = document.getElementById("height");
 var inputChar = document.getElementById("char");
 
-
 button.addEventListener("click", checkMe);
 inputChar.addEventListener("keyup", enterKey);
-
+inputHeight.addEventListener("keyup", enterKey);
 function enterKey(event){
     if(event.keyCode === 13){
       checkMe();
@@ -13,8 +12,8 @@ function enterKey(event){
 };
 
 function checkMe () {
-	if (inputHeight.value == "" || inputChar.value == "") {
-    	alert("Both fields required!");
+	if (inputHeight.value === "" || inputChar.value === "") {
+    	alert("Both Fields Required!");
 	} else {
       	var tree = {
         	height: inputHeight.value,
